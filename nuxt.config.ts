@@ -29,6 +29,7 @@ export default defineNuxtConfig({
         disallow: ['/orders', '/auth', '/cart', '/order'],
       },
     ],
+    sitemap: `${process.env.NUXT_SITE_URL || 'https://zavod-vintovikh-svai.ru'}/sitemap.xml`,
   },
 
   // Nuxt Image config
