@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   // Site config (for @nuxtjs/sitemap and @nuxtjs/robots)
   // @ts-ignore: nuxt-site-config types
   site: {
-    url: process.env.NUXT_SITE_URL || 'https://zavod-vintovikh-svai.ru',
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://zavod-vintovikh-svai.ru',
     name: 'Завод винтовых свай СтройМонтаж-86',
   },
 
@@ -29,7 +29,7 @@ export default defineNuxtConfig({
         disallow: ['/orders', '/auth', '/cart', '/order'],
       },
     ],
-    sitemap: `${process.env.NUXT_SITE_URL || 'https://zavod-vintovikh-svai.ru'}/sitemap.xml`,
+    sitemap: `${process.env.NUXT_PUBLIC_SITE_URL || 'https://zavod-vintovikh-svai.ru'}/sitemap.xml`,
   },
 
   // Nuxt Image config
@@ -60,11 +60,11 @@ export default defineNuxtConfig({
     senderEmail: process.env.SENDER_EMAIL || '',
     recipientEmail: process.env.RECIPIENT_EMAIL || '',
     public: {
-      siteUrl: process.env.NUXT_SITE_URL || 'https://zavod-vintovikh-svai.ru',
-      yandexMetrikaId: process.env.YANDEX_METRIKA_ID || '',
-      googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID || '',
-      yandexVerificationCode: process.env.YANDEX_VERIFICATION_CODE || '',
-      googleVerificationCode: process.env.GOOGLE_VERIFICATION_CODE || '',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://zavod-vintovikh-svai.ru',
+      yandexMetrikaId: process.env.NUXT_PUBLIC_YANDEX_METRIKA_ID || '',
+      googleAnalyticsId: process.env.NUXT_PUBLIC_GOOGLE_ANALYTICS_ID || '',
+      yandexVerificationCode: process.env.NUXT_PUBLIC_YANDEX_VERIFICATION_CODE || '',
+      googleVerificationCode: process.env.NUXT_PUBLIC_GOOGLE_VERIFICATION_CODE || '',
     },
   },
 
@@ -79,8 +79,8 @@ export default defineNuxtConfig({
           content: 'Производство и монтаж винтовых свай по всему ХМАО-ЯНАО. Диаметры Ø57–325 мм, монтаж за 1 день, гарантия по договору. Бесплатный выезд замерщика. Калькулятор онлайн.',
         },
         { name: 'keywords', content: 'винтовые сваи ХМАО-ЯНАО, монтаж свай ХМАО-ЯНАО, фундамент на винтовых сваях, купить сваи, установка свай под ключ' },
-        { name: 'google-site-verification', content: process.env.GOOGLE_VERIFICATION_CODE || 'JYhOrjtzM2VzfGfrEtRZeGETLNR4ha0Yh1Ch3bCllBI' },
-        { name: 'yandex-verification', content: process.env.YANDEX_VERIFICATION_CODE || 'b76a76f205429830' },
+        { name: 'google-site-verification', content: process.env.NUXT_PUBLIC_GOOGLE_VERIFICATION_CODE || 'JYhOrjtzM2VzfGfrEtRZeGETLNR4ha0Yh1Ch3bCllBI' },
+        { name: 'yandex-verification', content: process.env.NUXT_PUBLIC_YANDEX_VERIFICATION_CODE || 'b76a76f205429830' },
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'СтройМонтаж-86 — Завод винтовых свай' },
         { property: 'og:locale', content: 'ru_RU' },
