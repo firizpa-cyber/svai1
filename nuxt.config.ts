@@ -80,7 +80,7 @@ export default defineNuxtConfig({
         },
         { name: 'keywords', content: 'винтовые сваи ХМАО-ЯНАО, монтаж свай ХМАО-ЯНАО, фундамент на винтовых сваях, купить сваи, установка свай под ключ' },
         { name: 'google-site-verification', content: process.env.GOOGLE_VERIFICATION_CODE || 'JYhOrjtzM2VzfGfrEtRZeGETLNR4ha0Yh1Ch3bCllBI' },
-        { name: 'yandex-verification', content: process.env.YANDEX_VERIFICATION_CODE || '680ea1aa456d0adf' },
+        { name: 'yandex-verification', content: process.env.YANDEX_VERIFICATION_CODE || 'b76a76f205429830' },
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'СтройМонтаж-86 — Завод винтовых свай' },
         { property: 'og:locale', content: 'ru_RU' },
