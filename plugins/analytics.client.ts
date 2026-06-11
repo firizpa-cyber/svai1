@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Analytics plugin — loads Yandex Metrika, Google Analytics (GA4)
  * and Vercel Web Analytics on the client side only after the page is hydrated.
@@ -6,21 +7,15 @@
  *   YANDEX_METRIKA_ID=12345678
  *   GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
  */
+import { inject } from '@vercel/analytics'
+
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const ymId = config.public.yandexMetrikaId
   const gaId = config.public.googleAnalyticsId
 
   // ── Vercel Web Analytics ────────────────────────────────────────────────────
-  useHead({
-    script: [
-      {
-        src: '/_vercel/insights/script.js',
-        defer: true,
-        'data-endpoint': '/_vercel/insights',
-      },
-    ],
-  })
+  inject()
 
   // ── Yandex Metrika ──────────────────────────────────────────────────────────
   if (ymId) {
