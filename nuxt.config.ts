@@ -70,7 +70,9 @@ export default defineNuxtConfig({
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://zavod-vintovikh-svai.ru',
       yandexMetrikaId: process.env.NUXT_PUBLIC_YANDEX_METRIKA_ID || '',
+      yandexTagManagerId: process.env.NUXT_PUBLIC_YANDEX_TAG_MANAGER_ID || '',
       googleAnalyticsId: process.env.NUXT_PUBLIC_GOOGLE_ANALYTICS_ID || '',
+      googleTagManagerId: process.env.NUXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || '',
       yandexVerificationCode: process.env.NUXT_PUBLIC_YANDEX_VERIFICATION_CODE || '',
       googleVerificationCode: process.env.NUXT_PUBLIC_GOOGLE_VERIFICATION_CODE || '',
     },
