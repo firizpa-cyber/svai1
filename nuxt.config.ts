@@ -22,10 +22,10 @@ export default defineNuxtConfig({
 
   // Sitemap config (for @nuxtjs/sitemap v8)
   sitemap: {
-    sources: ["/api/sitemap.xml"],
-    exclude: ["/api/**", "/_nuxt/**"],
+    exclude: ["/api/**", "/_nuxt/**", "/orders", "/auth", "/cart", "/order"],
     autoLastmod: true,
-    strictNuxtContentPaths: false,
+    defaultPriority: 0.8,
+    defaultChangefreq: 'weekly',
   },
 
   // Robots config
