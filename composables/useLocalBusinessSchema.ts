@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Injects Schema.org LocalBusiness + WebSite structured data.
  * Call once in app.vue or layouts/default.vue.
@@ -12,14 +13,14 @@ export function useLocalBusinessSchema() {
           '@graph': [
             {
               '@type': 'LocalBusiness',
-              '@id': 'https://surgutsvai.ru/#organization',
+              '@id': 'https://zavod-vintovikh-svai.ru/#organization',
               name: 'СтройМонтаж-86 — Завод винтовых свай',
               alternateName: 'Завод винтовых свай Сургут',
               description:
                 'Производство и профессиональный монтаж винтовых свай по всему ХМАО-ЯНАО. Диаметры Ø57–325 мм. Монтаж за 1 день. Собственное производство с 2019 года.',
-              url: 'https://surgutsvai.ru',
-              logo: 'https://surgutsvai.ru/logo.webp',
-              image: 'https://surgutsvai.ru/gallery/hero-piles.webp',
+              url: 'https://zavod-vintovikh-svai.ru',
+              logo: 'https://zavod-vintovikh-svai.ru/logo.webp',
+              image: 'https://zavod-vintovikh-svai.ru/gallery/hero-piles.webp',
               telephone: ['+7-999-256-88-00', '+7-3462-67-70-70'],
               email: 'surgutsvai43@gmail.com',
               address: {
@@ -92,11 +93,11 @@ export function useLocalBusinessSchema() {
             },
             {
               '@type': 'WebSite',
-              '@id': 'https://surgutsvai.ru/#website',
-              url: 'https://surgutsvai.ru',
+              '@id': 'https://zavod-vintovikh-svai.ru/#website',
+              url: 'https://zavod-vintovikh-svai.ru',
               name: 'Завод винтовых свай СтройМонтаж-86',
               inLanguage: 'ru',
-              publisher: { '@id': 'https://surgutsvai.ru/#organization' },
+              publisher: { '@id': 'https://zavod-vintovikh-svai.ru/#organization' },
             },
           ],
         }),

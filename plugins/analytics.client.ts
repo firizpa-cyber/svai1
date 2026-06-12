@@ -33,7 +33,9 @@ export default defineNuxtPlugin(() => {
               trackLinks: true,
               accurateTrackBounce: true,
               webvisor: true,
-              ecommerce: "dataLayer"
+              ecommerce: "dataLayer",
+              referrer: document.referrer,
+              url: location.href
             });
           `,
           type: 'text/javascript',

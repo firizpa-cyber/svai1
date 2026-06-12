@@ -73,6 +73,18 @@
             <ClockIcon class="h-4 w-4 mt-0.5 shrink-0" />
             Пн–Вс: 08:00–22:00
           </li>
+          <li>
+            <a href="https://webmaster.yandex.ru/siteinfo/?site=zavod-vintovikh-svai.ru" target="_blank" rel="noopener noreferrer">
+              <img
+                width="88"
+                height="31"
+                alt=""
+                border="0"
+                style="border-radius: 8px"
+                src="https://yandex.ru/cycounter?zavod-vintovikh-svai.ru&theme=dark&lang=ru"
+              />
+            </a>
+          </li>
         </ul>
       </div>
     </div>

@@ -20,6 +20,14 @@ export default defineNuxtConfig({
     name: 'Завод винтовых свай СтройМонтаж-86',
   },
 
+  // Sitemap config (for @nuxtjs/sitemap v8)
+  sitemap: {
+    sources: ["/api/sitemap.xml"],
+    exclude: ["/api/**", "/_nuxt/**"],
+    autoLastmod: true,
+    strictNuxtContentPaths: false,
+  },
+
   // Robots config
   robots: {
     rules: [
@@ -97,6 +105,7 @@ export default defineNuxtConfig({
           href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap',
         },
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'apple-touch-icon', href: '/favicon.png' },
       ],
     },
   },
