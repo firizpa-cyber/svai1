@@ -1,4 +1,13 @@
 <template>
+  <SeoHead 
+    title="Калькулятор стоимости свайного фундамента онлайн — Сургут | СтройМонтаж-86" 
+    description="Рассчитайте стоимость свайного фундамента онлайн за 1 минуту. Подберите сваи нужного диаметра и длины, укажите количество — получите точную смету материалов и монтажа." 
+    keywords="калькулятор свайного фундамента, расчёт стоимости свай Сургут, сколько стоит фундамент на сваях, онлайн калькулятор фундамент, калькулятор стоимости свайного фундамента, расчёт свайного фундамента"
+    ogImage="/gallery/hero-piles.webp"
+    ogImageAlt="Калькулятор свайного фундамента в Сургуте"
+    ogType="website"
+    canonicalUrl="https://zavod-vintovikh-svai.com/calculator"
+  />
   <div class="container mx-auto px-4 py-12 lg:py-16">
     <div class="max-w-2xl">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#CD2122]/10 text-brand text-xs font-semibold uppercase tracking-wider">
@@ -141,13 +150,7 @@ import {
 import { formatRub } from '~/utils/format'
 import { PRODUCTS } from '~/utils/productsData'
 
-useSeoMeta({
-  title: 'Калькулятор стоимости свайного фундамента онлайн — Сургут | СтройМонтаж-86',
-  description: 'Рассчитайте стоимость свайного фундамента онлайн за 1 минуту. Подберите сваи нужного диаметра и длины, укажите количество — получите точную смету.',
-  keywords: 'калькулятор свайного фундамента, расчёт стоимости свай Сургут, сколько стоит фундамент на сваях, онлайн калькулятор фундамент',
-  ogTitle: 'Калькулятор стоимости свайного фундамента — Сургут',
-  ogDescription: 'Рассчитайте сваи и монтаж онлайн за 1 минуту.',
-})
+import SeoHead from '~/components/SeoHead.vue'
 
 const route = useRoute()
 const products = PRODUCTS

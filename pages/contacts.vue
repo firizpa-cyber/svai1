@@ -1,4 +1,13 @@
 <template>
+  <SeoHead 
+    title="Контакты — Завод винтовых свай СтройМонтаж-86 в Сургуте и Новом Уренгое" 
+    description="Завод винтовых свай в Сургуте и Новом Уренгое. Телефон +7 999 256-88-00. Работаем ежедневно 08:00–22:00. Выезжаем по всему ХМАО-ЯНАО." 
+    keywords="контакты завод свай Сургут, адрес производителя свай, телефон монтаж фундамента Сургут, сваи Индустриальная Сургут, контакты завод свай Новый Уренгой, адрес производителя свай Новый Уренгой, телефон монтаж фундамента Новый Уренгой"
+    ogImage="/gallery/hero-piles.webp"
+    ogImageAlt="Контакты завода винтовых свай в Сургуте"
+    ogType="website"
+    canonicalUrl="https://zavod-vintovikh-svai.com/contacts"
+  />
   <div class="container mx-auto px-4 py-12 lg:py-16 max-w-5xl">
     <span class="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Контакты</span>
     <h1 class="mt-2 font-display text-4xl lg:text-5xl font-bold">Свяжитесь с нами</h1>
@@ -161,16 +170,9 @@ import {
   Send as SendIcon,
   ExternalLink as ExternalLinkIcon,
 } from 'lucide-vue-next'
+import SeoHead from '~/components/SeoHead.vue'
 
 const { phoneDisplay, phoneTel, telegramUrl, avitoUrl } = useSiteContacts()
-
-useSeoMeta({
-  title: 'Контакты — Завод винтовых свай СтройМонтаж-86 в Сургуте',
-  description: 'г. Сургут, ул. Индустриальная, 17, оф. 108. Телефон +7 999 256-88-00. Email surgutsvai43@gmail.com. Работаем ежедневно 08:00–22:00. Выезжаем по всему ХМАО-ЯНАО.',
-  keywords: 'контакты завод свай Сургут, адрес производителя свай, телефон монтаж фундамента Сургут, сваи Индустриальная Сургут',
-  ogTitle: 'Контакты — Завод винтовых свай Сургут',
-  ogDescription: 'Телефон, email, адрес офиса. Работаем ежедневно 08:00–22:00.',
-})
 
 const GALLERY_PHOTOS = [
   'photo_17_2026-06-06_11-15-46.webp',

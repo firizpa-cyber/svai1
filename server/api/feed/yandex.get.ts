@@ -2,7 +2,7 @@
 import { PRODUCTS } from '../../data/products'
 
 export default defineEventHandler(async (event) => {
-  const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://zavod-vintovikh-svai.ru'
+  const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://zavod-vintovikh-svai.com'
   const feedDate = new Date().toISOString()
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
