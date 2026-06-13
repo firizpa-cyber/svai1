@@ -1,4 +1,14 @@
 <template>
+  <SeoHead
+    v-if="product"
+    :title="product.seo_title"
+    :description="product.seo_description"
+    :keywords="`${product.title}, винтовая свая ${product.diameter_mm} мм купить Сургут, свая ${product.diameter_mm} мм цена, ${product.title} в Новом Уренгое`"
+    :og-image="imageUrl"
+    :og-image-alt="product.title"
+    :canonical-url="`${useRuntimeConfig().public.siteUrl}/product/${product.slug}`"
+    og-type="product"
+  />
   <div class="container mx-auto px-4 py-12 lg:py-16 max-w-6xl">
     <NuxtLink to="/catalog" class="inline-flex items-center gap-2 text-sm text-[oklch(0.45_0.02_50)] hover:text-[oklch(0.18_0.02_40)] mb-6">
       <ArrowLeftIcon class="h-4 w-4" /> Вернуться в каталог
@@ -20,7 +30,7 @@
       <div class="aspect-square rounded-2xl overflow-hidden border border-[oklch(0.85_0.02_70)] bg-[oklch(0.93_0.015_75)]">
         <img
           :src="imageUrl"
-          :alt="product.name"
+          :alt="product.title"
           class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
         />
       </div>
@@ -29,7 +39,7 @@
       <div class="flex flex-col">
         <div>
           <span class="text-xs font-semibold uppercase tracking-[0.2em] text-brand">{{ product.category }}</span>
-          <h1 class="mt-2 font-display text-3xl lg:text-4xl font-bold">{{ product.name }}</h1>
+          <h1 class="mt-2 font-display text-3xl lg:text-4xl font-bold">{{ product.title }}</h1>
         </div>
 
         <div v-if="product.diameter_mm > 0" class="mt-6 grid grid-cols-3 gap-4">
@@ -41,20 +51,16 @@
             <div class="text-xs text-[oklch(0.45_0.02_50)]">Длина</div>
             <div class="font-display text-xl font-bold mt-1">{{ product.length_m }} м</div>
           </div>
-          <div class="rounded-lg border border-[oklch(0.85_0.02_70)] bg-[oklch(0.99_0.005_80)] p-4">
-            <div class="text-xs text-[oklch(0.45_0.02_50)]">Стенка</div>
-            <div class="font-display text-xl font-bold mt-1">{{ product.wall_thickness_mm }} мм</div>
-          </div>
         </div>
 
         <div class="mt-8 space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-sm text-[oklch(0.45_0.02_50)]">Цена за единицу</span>
-            <span class="font-display text-2xl font-bold text-brand">{{ formatRub(product.price) }}</span>
+            <span class="font-display text-2xl font-bold text-brand">{{ formatRub(product.price_base_rub) }}</span>
           </div>
-          <div v-if="product.install_price > 0" class="flex items-center justify-between">
+          <div v-if="product.price_install_rub > 0" class="flex items-center justify-between">
             <span class="text-sm text-[oklch(0.45_0.02_50)]">Монтаж за единицу</span>
-            <span class="font-display text-xl font-semibold">{{ formatRub(product.install_price) }}</span>
+            <span class="font-display text-xl font-semibold">{{ formatRub(product.price_install_rub) }}</span>
           </div>
         </div>
 
@@ -88,11 +94,11 @@
         <div class="mt-8 space-y-4 pt-8 border-t border-[oklch(0.85_0.02_70)]">
           <div class="flex items-center justify-between">
             <span class="text-sm text-[oklch(0.45_0.02_50)]">Итого за товар</span>
-            <span class="font-display text-2xl font-bold">{{ formatRub(quantity * product.price) }}</span>
+            <span class="font-display text-2xl font-bold">{{ formatRub(quantity * product.price_base_rub) }}</span>
           </div>
-          <div v-if="product.install_price > 0" class="flex items-center justify-between">
+          <div v-if="product.price_install_rub > 0" class="flex items-center justify-between">
             <span class="text-sm text-[oklch(0.45_0.02_50)]">С монтажом</span>
-            <span class="font-display text-2xl font-bold text-brand">{{ formatRub(quantity * (product.price + product.install_price)) }}</span>
+            <span class="font-display text-2xl font-bold text-brand">{{ formatRub(quantity * (product.price_base_rub + product.price_install_rub)) }}</span>
           </div>
         </div>
 
@@ -131,13 +137,14 @@ import {
 import { formatRub } from '~/utils/format'
 import { useCart } from '~/composables/useCart'
 import { useToast } from '~/composables/useToast'
+import SeoHead from '~/components/SeoHead.vue'
+import { PRODUCTS } from '~/server/data/products'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
 const { success } = useToast()
 const { addItem } = useCart()
-
-const { data, pending } = await useFetch('/api/products')
+const config = useRuntimeConfig()
 
 const GALLERY_PHOTOS = [
   '1.webp', '123.webp', '1231.webp', '12311.webp', '1231111.webp', '123112.webp',
@@ -146,44 +153,29 @@ const GALLERY_PHOTOS = [
 ]
 
 const product = computed(() => {
-  return (data.value?.products || []).find((p: any) => p.slug === slug.value) || null
+  return PRODUCTS.find((p) => p.slug === slug.value) || null
 })
 
 const photoIndex = computed(() => {
-  const products = data.value?.products || []
-  const idx = products.findIndex((p: any) => p.slug === slug.value)
+  const idx = PRODUCTS.findIndex((p) => p.slug === slug.value)
   return idx % GALLERY_PHOTOS.length
 })
 
 const imageUrl = computed(() =>
-  product.value?.image_url || `/gallery/${GALLERY_PHOTOS[photoIndex.value]}`
+  `/gallery/${GALLERY_PHOTOS[photoIndex.value]}`
 )
 
 const quantity = ref(1)
-
-useSeoMeta(() => ({
-  title: product.value
-    ? `${product.value.name} — купить в Сургуте | СтройМонтаж-86`
-    : 'Товар — Завод винтовых свай Сургут',
-  description: product.value
-    ? `Купить ${product.value.name} в Сургуте. Диаметр Ø${product.value.diameter_mm} мм, длина ${product.value.length_m} м, стенка ${product.value.wall_thickness_mm} мм. Цена ${product.value.price.toLocaleString('ru-RU')} ₽. Монтаж под ключ.`
-    : '',
-  keywords: product.value
-    ? `${product.value.name}, свая ${product.value.diameter_mm} мм купить Сургут, винтовая свая ${product.value.diameter_mm} мм цена`
-    : '',
-  ogTitle: product.value ? `${product.value.name} — СтройМонтаж-86 Сургут` : '',
-  ogImage: imageUrl.value,
-}))
 
 const addToCart = () => {
   if (!product.value) return
   addItem({
     product_id: product.value.id,
-    name: product.value.name,
-    price: product.value.price,
-    install_price: product.value.install_price,
+    name: product.value.title,
+    price: product.value.price_base_rub,
+    install_price: product.value.price_install_rub,
     qty: quantity.value,
   })
-  success(`Добавлено в корзину: ${product.value.name} × ${quantity.value}`)
+  success(`Добавлено в корзину: ${product.value.title} × ${quantity.value}`)
 }
 </script>

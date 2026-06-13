@@ -12,7 +12,9 @@
     "postinstall": "npm install --prefix backend",
     "preview": "nuxt preview",
     "generate": "nuxt generate",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "deploy:connect": "./deploy/connect.sh",
+    "deploy": "./deploy/deploy.sh"
   },
   "dependencies": {
     "@nuxt/image": "^2.0.0",

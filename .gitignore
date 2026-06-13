@@ -2,3 +2,7 @@
 .nuxt/
 .output/
 node_modules/
+dist/
+*.zip
+deploy/__pycache__/
+deploy/config.env

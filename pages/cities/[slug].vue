@@ -1,4 +1,14 @@
 <template>
+  <SeoHead
+    v-if="city"
+    :title="`Винтовые сваи в ${city.name_loc} — монтаж фундамента | СтройМонтаж-86 Сургут`"
+    :description="`Производство и монтаж винтовых свай в ${city.name_loc}. Выезд из Сургута, ${city.km} км. Сваи Ø57–325 мм, монтаж за 1 день, гарантия по договору.`"
+    :keywords="`винтовые сваи ${city.name}, монтаж свай ${city.name}, фундамент на сваях ${city.name}, сваи под дом ${city.name}, свайный фундамент ${city.name} цена, винтовые сваи купить ${city.name}`"
+    og-image="/gallery/hero-piles.webp"
+    :og-image-alt="`Винтовые сваи в ${city.name_loc}`"
+    :canonical-url="`${useRuntimeConfig().public.siteUrl}/cities/${slug}`"
+    og-type="website"
+  />
   <div v-if="city">
     <!-- Hero -->
     <section class="relative overflow-hidden border-b border-[oklch(0.85_0.02_70)] bg-[oklch(0.18_0.01_40)] py-16 text-[oklch(0.93_0.025_80)]">
@@ -119,6 +129,7 @@
 
 <script setup lang="ts">
 import { CheckCircle2 as CheckCircle2Icon } from 'lucide-vue-next'
+import SeoHead from '~/components/SeoHead.vue'
 
 const CITIES: Record<string, {
   name: string; name_loc: string; name_gen: string; km: string; features: string[]
@@ -319,31 +330,4 @@ const SERVICES = [
 const route = useRoute()
 const slug = route.params.slug as string
 const city = CITIES[slug] ?? null
-
-useSeoMeta(() => ({
-  title: city
-    ? `Винтовые сваи в ${city.name_loc} — монтаж фундамента | СтройМонтаж-86 Сургут`
-    : 'Страница не найдена',
-  description: city
-    ? `Производство и монтаж винтовых свай в ${city.name_loc}. Выезд из Сургута, ${city.km} км. Сваи Ø57–325 мм, монтаж за 1 день, гарантия по договору.`
-    : '',
-  keywords: city
-    ? `винтовые сваи ${city.name}, монтаж свай ${city.name}, фундамент на сваях ${city.name}, сваи под дом ${city.name}, свайный фундамент ${city.name} цена`
-    : '',
-  ogTitle: city ? `Сваи и монтаж фундамента в ${city.name_loc}` : '',
-  ogDescription: city ? `Выезд из Сургута, ${city.km} км. Работаем в ${city.name_loc}.` : '',
-}))
-
-useHead(() => city ? {
-  script: [{
-    type: 'application/ld+json',
-    innerHTML: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: `Монтаж винтовых свай в ${city.name_loc}`,
-      provider: { '@type': 'LocalBusiness', name: 'СтройМонтаж-86', address: { '@type': 'PostalAddress', addressLocality: 'Сургут', addressCountry: 'RU' } },
-      areaServed: { '@type': 'City', name: city.name },
-    }),
-  }],
-} : {})
 </script>

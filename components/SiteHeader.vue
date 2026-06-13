@@ -211,7 +211,7 @@ const NAV = [
   { to: '/prices', label: 'Цены на сваи' },
   { to: '/catalog', label: 'Винтовые сваи' },
   { to: '/services/fundament-pod-dom', label: 'Другие фундаменты' },
-  { href: '/Прайс-лист винтовых свай Сургут.txt', label: 'Прайс-лист' },
+  { href: '/price-list-surgut.txt', label: 'Прайс-лист' },
   { to: '/contacts', label: 'Контакты' },
 ]
 

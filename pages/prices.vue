@@ -1,4 +1,13 @@
 <template>
+  <SeoHead 
+    title="Цены на винтовые сваи и монтаж фундамента в Сургуте и Новом Уренгое 2026 — Прайс-лист" 
+    description="Актуальные цены на винтовые сваи Ø57–325 мм и услуги монтажа свайного фундамента в Сургуте и Новом Уренгое, по всему ХМАО-ЯНАО. Монтаж от 900 ₽/сваю. Скачайте официальный прайс-лист." 
+    keywords="цены на винтовые сваи ХМАО-ЯНАО, прайс-лист сваи, стоимость монтажа свай, свайный фундамент цена 2026, фундамент под ключ цена, монтаж свай цена, цены на сваи Сургут, цены на сваи Новый Уренгой, стоимость свай Сургут, стоимость свай Новый Уренгой"
+    ogImage="/gallery/hero-piles.webp"
+    ogImageAlt="Прайс-лист на винтовые сваи в Сургуте"
+    ogType="website"
+    canonicalUrl="https://zavod-vintovikh-svai.com/prices"
+  />
   <div>
     <!-- HEADER HERO -->
     <section class="relative overflow-hidden border-b border-[oklch(0.85_0.02_70)] bg-[oklch(0.18_0.01_40)] py-16 text-[oklch(0.93_0.025_80)]">
@@ -12,7 +21,7 @@
           Собственное производство в Сургуте. Прозрачное ценообразование без скрытых наценок. Гарантия на работы по договору.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
-          <a href="/Прайс-лист винтовых свай Сургут.txt" download>
+          <a href="/price-list-surgut.txt" download>
             <button class="inline-flex items-center gap-2 h-12 px-6 font-semibold rounded-md bg-[#CD2122] hover:bg-[#CD2122]/90 text-[oklch(0.18_0.01_40)] transition">
               <FileDownIcon class="h-5 w-5" /> Скачать прайс-лист TXT
             </button>
@@ -107,7 +116,7 @@
               </div>
             </div>
             <div class="mt-8">
-              <a href="/Прайс-лист винтовых свай Сургут.txt" download>
+              <a href="/price-list-surgut.txt" download>
                 <button class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[#CD2122] text-brand hover:bg-[#CD2122]/10 text-sm font-medium transition">
                   <FileDownIcon class="h-4 w-4" /> Скачать прайс-лист TXT
                 </button>
@@ -220,14 +229,7 @@ import {
 } from 'lucide-vue-next'
 import { formatRub } from '@/utils/format'
 import { PRODUCTS } from '~/utils/productsData'
-
-useSeoMeta({
-  title: 'Цены на винтовые сваи и монтаж фундамента в ХМАО-ЯНАО 2026 — Прайс-лист',
-  description: 'Актуальные цены на винтовые сваи Ø57–325 мм и услуги монтажа свайного фундамента по всему ХМАО-ЯНАО. Монтаж от 900 ₽/сваю. Скачайте официальный прайс-лист.',
-  keywords: 'цены на винтовые сваи ХМАО-ЯНАО, прайс-лист сваи, стоимость монтажа свай, свайный фундамент цена 2026, фундамент под ключ цена, монтаж свай цена',
-  ogTitle: 'Прайс-лист на винтовые сваи — СтройМонтаж-86',
-  ogDescription: 'Актуальные цены 2026 на сваи и монтаж по ХМАО-ЯНАО. Без скрытых наценок.',
-})
+import SeoHead from '~/components/SeoHead.vue'
 
 const SCREW_CARDS = [
   {
