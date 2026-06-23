@@ -6,3 +6,35 @@ dist/
 *.zip
 deploy/__pycache__/
 deploy/config.env
+
+# Nuxt static site generation output
+/_nuxt/
+/_ipx/
+/__sitemap__/
+/_payload.json
+/index.html
+/200.html
+/404.html
+/robots.txt
+/sitemap.xml
+
+# Generated static route directories
+/about/
+/calculator/
+/cart/
+/catalog/
+/contacts/
+/gallery/
+/order/
+/prices/
+/product/
+/services/
+
+# Generated copies from public/
+/favicon.png
+/logo.webp
+/price-list.pdf
+/price-list-surgut.txt
+/prices-table.webp
+/google*.html
+/yandex_*.html
