@@ -5,6 +5,10 @@ import { defineNuxtConfig } from 'nuxt/config';
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  nitro: {
+    preset: 'static'
+  },
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
@@ -122,12 +126,4 @@ ym(109825207, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLa
 
 
   compatibilityDate: '2025-01-01',
-
-  // Silence router warnings for non-Nuxt paths (Vite HMR, service workers, etc.)
-  routeRules: {
-    '/@vite/**': { redirect: { to: '/', statusCode: 404 } },
-    '/src/**': { redirect: { to: '/', statusCode: 404 } },
-    '/@react-refresh': { redirect: { to: '/', statusCode: 404 } },
-    '/sw.js': { redirect: { to: '/', statusCode: 404 } },
-  },
 })
